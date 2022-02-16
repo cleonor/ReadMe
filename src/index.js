@@ -29,6 +29,13 @@ const App = () => {
                         onInput={e => setNumPages(e.target.value)}
                     />
                 </div>
+                <div>
+                    <button
+                        type="button"
+                    >
+                        Add
+                    </button>
+                </div>
             </div>
         </div>
     )

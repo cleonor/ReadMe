@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from 'react-dom';
+import Calendar from 'react-calendar';
 
 const App = () => {
 
@@ -28,6 +29,9 @@ const App = () => {
                         value={numPages}
                         onInput={e => setNumPages(e.target.value)}
                     />
+                </div>
+                <div className='calendar-container'>
+                    <Calendar />
                 </div>
                 <div>
                     <button

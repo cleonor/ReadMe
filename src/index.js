@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import ReactDOM from 'react-dom';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import NumberOfDays from "./numOfDays";
 
 const App = () => {
 
     const [numPages, setNumPages] = useState();
     const [title, setTitle] = useState();
-    const [date, setDate] = useState(new Date());
+    const [date, setDate] = useState([new Date()]);
 
     return (
         <div><h1>Welcome to ReadMe</h1>
@@ -35,24 +36,32 @@ const App = () => {
                 <div>
                     <Calendar
                         onChange={setDate}
-                        value={date}
                         selectRange={true}
                         minDate={new Date()}
                     />
                 </div>
-                {date.length > 0 ? (
-                    <p>
+
+                {date.length > 1 ? (
+                    <div>
                         <span>Start:</span>{' '}
                         {date[0].toDateString()}
                         &nbsp;|&nbsp;
                         <span>End:</span> {date[1].toDateString()}
-                    </p>
+
+                        <NumberOfDays
+                            startDate={date[0]}
+                            endDate={date[1]}
+                        />
+
+                    </div>
+
                 ) : (
-                    <p>
+                    <div>
                         <span>Date:</span>{' '}
-                        {date.toDateString()}
-                    </p>
+                        {date[0].toDateString()}
+                    </div>
                 )}
+
                 <div>
                     <button
                         type="button"

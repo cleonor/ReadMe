@@ -32,8 +32,12 @@ const App = () => {
                         onInput={e => setNumPages(e.target.value)}
                     />
                 </div>
-                <div className='calendar-container'>
-                    <Calendar onChange={setDate} value={date} />
+                <div>
+                    <Calendar
+                        onChange={setDate}
+                        value={date}
+                        selectRange={true}
+                    />
                 </div>
                 <div>
                     <button

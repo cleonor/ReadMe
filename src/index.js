@@ -37,6 +37,7 @@ const App = () => {
                         onChange={setDate}
                         value={date}
                         selectRange={true}
+                        minDate={new Date()}
                     />
                 </div>
                 <div>

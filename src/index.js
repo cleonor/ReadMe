@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from 'react-dom';
 import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 const App = () => {
 

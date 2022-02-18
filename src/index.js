@@ -6,6 +6,7 @@ const App = () => {
 
     const [numPages, setNumPages] = useState();
     const [title, setTitle] = useState();
+    const [date, setDate] = useState();
 
     return (
         <div><h1>Welcome to ReadMe</h1>
@@ -31,7 +32,7 @@ const App = () => {
                     />
                 </div>
                 <div className='calendar-container'>
-                    <Calendar />
+                    <Calendar onChange={setDate} value={date} />
                 </div>
                 <div>
                     <button

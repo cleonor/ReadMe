@@ -7,7 +7,7 @@ const App = () => {
 
     const [numPages, setNumPages] = useState();
     const [title, setTitle] = useState();
-    const [date, setDate] = useState();
+    const [date, setDate] = useState(new Date());
 
     return (
         <div><h1>Welcome to ReadMe</h1>
@@ -40,6 +40,19 @@ const App = () => {
                         minDate={new Date()}
                     />
                 </div>
+                {date.length > 0 ? (
+                    <p>
+                        <span>Start:</span>{' '}
+                        {date[0].toDateString()}
+                        &nbsp;|&nbsp;
+                        <span>End:</span> {date[1].toDateString()}
+                    </p>
+                ) : (
+                    <p>
+                        <span>Date:</span>{' '}
+                        {date.toDateString()}
+                    </p>
+                )}
                 <div>
                     <button
                         type="button"

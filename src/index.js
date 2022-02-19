@@ -51,6 +51,7 @@ const App = () => {
                         <NumberOfDays
                             startDate={date[0]}
                             endDate={date[1]}
+                            numPages={numPages}
                         />
 
                     </div>

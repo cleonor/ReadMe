@@ -66,6 +66,7 @@ const App = () => {
                 <div>
                     <button
                         type="button"
+                        onClick={() => console.log(numPages)}
                     >
                         Add
                     </button>

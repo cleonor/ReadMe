@@ -21,6 +21,7 @@ const App = () => {
                         type="text"
                         value={title}
                         onInput={e => setTitle(e.target.value)}
+                        required
                     />
                 </div>
                 <div>
@@ -28,7 +29,8 @@ const App = () => {
                         Number of pages:
                     </label>
                     <input
-                        type="text"
+                        type="number"
+                        required min="1"
                         value={numPages}
                         onInput={e => setNumPages(e.target.value)}
                     />

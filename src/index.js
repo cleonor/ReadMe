@@ -29,6 +29,7 @@ const App = () => {
                         value={title}
                         onInput={e => setTitle(e.target.value)}
                     />
+                    <p>{errors.bookName?.message}</p>
                 </div>
                 <div>
                     <label>
@@ -39,13 +40,15 @@ const App = () => {
                         {...register("numberPages", {
                             required: "This is required.",
                             min: {
-                                value: 4,
-                                message: "Min value is 0"
+                                value: 1,
+                                message: "Min value is 1"
                             }
                         })}
                         value={numPages}
                         onInput={e => setNumPages(e.target.value)}
                     />
+                    <p>{errors.numberPages?.message}</p>
+
                 </div>
                 <div>
                     <Calendar

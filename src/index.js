@@ -9,7 +9,6 @@ import PopUp from "./components/popUp";
 const App = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-    console.log(errors)
 
     const [numPages, setNumPages] = useState();
     const [title, setTitle] = useState();
@@ -86,15 +85,20 @@ const App = () => {
                     type="submit"
                     onClick={() => setTrigged(true)}
                 />
+
             </form>
 
-            <PopUp
+            {date.length > 1 && (<PopUp
                 trigger={istrigged}
                 setTrigged={setTrigged}
             >
                 <h3>Title of the Book: {title}</h3>
                 <p>Number of Pages: {numPages}</p>
+                <p>Starting Date: {date[0].toDateString()}</p>
+                <p>End Date: {date[1].toDateString()}</p>
             </PopUp>
+            )
+            }
 
         </div>
     )

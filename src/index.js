@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import ReactDOM from 'react-dom';
 import Calendar from 'react-calendar';
+import { useForm } from "react-hook-form";
 import 'react-calendar/dist/Calendar.css';
 import NumberOfDays from "./numOfDays";
 
 const App = () => {
+
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    console.log(errors)
 
     const [numPages, setNumPages] = useState();
     const [title, setTitle] = useState();
@@ -12,16 +16,18 @@ const App = () => {
 
     return (
         <div><h1>Welcome to ReadMe</h1>
-            <div>
+            <form onSubmit={handleSubmit((data) => {
+                console.log(data);
+            })}>
                 <div>
                     <label>
                         Name of the book:
                     </label>
                     <input
                         type="text"
+                        {...register("bookName", { required: "This is required." })}
                         value={title}
                         onInput={e => setTitle(e.target.value)}
-                        required
                     />
                 </div>
                 <div>
@@ -30,13 +36,20 @@ const App = () => {
                     </label>
                     <input
                         type="number"
-                        required min="1"
+                        {...register("numberPages", {
+                            required: "This is required.",
+                            min: {
+                                value: 4,
+                                message: "Min value is 0"
+                            }
+                        })}
                         value={numPages}
                         onInput={e => setNumPages(e.target.value)}
                     />
                 </div>
                 <div>
                     <Calendar
+                        type="text"
                         onChange={setDate}
                         selectRange={true}
                         minDate={new Date()}
@@ -64,16 +77,17 @@ const App = () => {
                         {date[0].toDateString()}
                     </div>
                 )}
+                <input type="submit" />
 
-                <div>
+                {/* <div>
                     <button
                         type="button"
                         onClick={() => console.log(numPages)}
                     >
                         Add
                     </button>
-                </div>
-            </div>
+                </div> */}
+            </form>
         </div>
     )
 }

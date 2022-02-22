@@ -14,6 +14,7 @@ const App = () => {
     const [numPages, setNumPages] = useState();
     const [title, setTitle] = useState();
     const [date, setDate] = useState([new Date()]);
+    const [istrigged, setTrigged] = useState(false);
 
     return (
         <div><h1>Welcome to ReadMe</h1>
@@ -83,8 +84,15 @@ const App = () => {
                 )}
                 <input
                     type="submit"
+                    onClick={() => setTrigged(true)}
                 />
             </form>
+
+            <PopUp trigger={istrigged}>
+                <h3>Title of the Book: {title}</h3>
+                <p>Number of Pages: {numPages}</p>
+            </PopUp>
+
         </div>
     )
 }

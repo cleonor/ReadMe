@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import Calendar from 'react-calendar';
 import { useForm } from "react-hook-form";
 import 'react-calendar/dist/Calendar.css';
-import NumberOfDays from "./numOfDays";
-import PopUp from "./popUp";
+import NumberOfDays from "./components/numOfDays";
+import PopUp from "./components/popUp";
 
 const App = () => {
 

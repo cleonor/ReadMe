@@ -1,13 +1,18 @@
 import React from "react";
 import "./popUp.css"
 
-function PopUp(props) {
-    return (props.trigger) ? (
+function PopUp({ trigger, setTrigged, children }) {
+    return (trigger) ? (
         <div className="popup">
             <div className="popup-inner">
-                <button className="backButton">Back</button>
+                <button
+                    className="backButton"
+                    onClick={() => setTrigged(false)}
+                >
+                    Back
+                </button>
                 <button className="continueButton">Continue</button>
-                {props.children}
+                {children}
             </div>
         </div>
     ) : "";

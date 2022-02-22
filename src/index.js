@@ -88,7 +88,10 @@ const App = () => {
                 />
             </form>
 
-            <PopUp trigger={istrigged}>
+            <PopUp
+                trigger={istrigged}
+                setTrigged={setTrigged}
+            >
                 <h3>Title of the Book: {title}</h3>
                 <p>Number of Pages: {numPages}</p>
             </PopUp>

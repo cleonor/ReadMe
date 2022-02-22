@@ -4,6 +4,7 @@ import Calendar from 'react-calendar';
 import { useForm } from "react-hook-form";
 import 'react-calendar/dist/Calendar.css';
 import NumberOfDays from "./numOfDays";
+import PopUp from "./popUp";
 
 const App = () => {
 
@@ -80,16 +81,9 @@ const App = () => {
                         {date[0].toDateString()}
                     </div>
                 )}
-                <input type="submit" />
-
-                {/* <div>
-                    <button
-                        type="button"
-                        onClick={() => console.log(numPages)}
-                    >
-                        Add
-                    </button>
-                </div> */}
+                <input
+                    type="submit"
+                />
             </form>
         </div>
     )

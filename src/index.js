@@ -6,6 +6,7 @@ import 'react-calendar/dist/Calendar.css';
 import NumberOfDays from "./components/numOfDays";
 import PopUp from "./components/popUp";
 import "./index.css";
+import Navbar from "./components/navBar";
 
 const App = () => {
 
@@ -17,7 +18,8 @@ const App = () => {
     const [istrigged, setTrigged] = useState(false);
 
     return (
-        <div><h1>Welcome to ReadMe</h1>
+        <div>
+            <Navbar></Navbar>
             <form onSubmit={handleSubmit((data) => {
                 console.log(data);
             })}>

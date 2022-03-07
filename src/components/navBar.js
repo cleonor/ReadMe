@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { blueGrey } from '@mui/material/colors';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import axios from "axios";
 
 const theme = createTheme({
     palette: {
@@ -16,6 +17,13 @@ const theme = createTheme({
 
 
 const Navbar = () => {
+    const [user, setUser] = useState("");
+
+    axios
+        .get("http://localhost:3001/user")
+        .then(function (response) {
+            setUser(response)
+        })
 
     return (
         <ThemeProvider theme={theme}>
@@ -27,7 +35,12 @@ const Navbar = () => {
                     >
                         ReadMe
                     </Typography>
-                    <Button color="inherit">Signup</Button>
+                    <Button
+                        color="inherit"
+                        onClick={() => console.log({ user })}
+                    >
+                        Log in
+                    </Button>
                 </Toolbar>
             </AppBar>
         </ThemeProvider>

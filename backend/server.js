@@ -10,8 +10,9 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
-app.get('/user', (req, res) => {
-    res.send('Hello, Leonor')
+app.get('/user/:username/books', (req, res) => {
+    const name = req.params.username
+    res.send(`Hello, ${name}`)
 })
 
 app.listen(port, () => {

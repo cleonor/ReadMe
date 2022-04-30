@@ -8,6 +8,10 @@ import PopUp from "./components/popUp";
 import "./index.css";
 import Navbar from "./components/navBar";
 
+const pushToBE = () => {
+    
+}
+
 const App = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();

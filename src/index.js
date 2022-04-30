@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Calendar from 'react-calendar';
 import { useForm } from "react-hook-form";
 import 'react-calendar/dist/Calendar.css';
+import './calendar.css'
 import NumberOfDays from "./components/numOfDays";
 import PopUp from "./components/popUp";
 import "./index.css";

@@ -7,9 +7,13 @@ import NumberOfDays from "./components/numOfDays";
 import PopUp from "./components/popUp";
 import "./index.css";
 import Navbar from "./components/navBar";
+import axios from "axios";
 
-const pushToBE = () => {
-    
+const pushToBE = (title, numPages) => {
+    axios.post('http://localhost:3001/newbook', {
+        title: title,
+        numberofPages: numPages
+    });
 }
 
 const App = () => {
@@ -90,7 +94,10 @@ const App = () => {
                 )}
                 <input
                     type="submit"
-                    onClick={() => setTrigged(true)}
+                    onClick={() => {
+                        setTrigged(true);
+                        pushToBE(title, numPages);
+                    }}
                 />
 
             </form>

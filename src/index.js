@@ -29,80 +29,83 @@ const App = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <form onSubmit={handleSubmit((data) => {
-                console.log(data);
-            })}>
-                <div>
-                    <label>
-                        Name of the book:
-                    </label>
-                    <input
-                        type="text"
-                        {...register("bookName", { required: "This is required." })}
-                        value={title}
-                        onInput={e => setTitle(e.target.value)}
-                    />
-                    <p>{errors.bookName?.message}</p>
-                </div>
-                <div>
-                    <label>
-                        Number of pages:
-                    </label>
-                    <input
-                        type="number"
-                        {...register("numberPages", {
-                            required: "This is required.",
-                            min: {
-                                value: 1,
-                                message: "Min value is 1"
-                            }
-                        })}
-                        value={numPages}
-                        onInput={e => setNumPages(e.target.value)}
-                    />
-                    <p>{errors.numberPages?.message}</p>
-
-                </div>
-                <div>
-                    <Calendar
-                        type="text"
-                        onChange={setDate}
-                        selectRange={true}
-                        minDate={new Date()}
-                    />
-                </div>
-
-                {date.length > 1 ? (
+            <div className="searchFormContainer">
+                <form
+                    className="searchForm"
+                    onSubmit={handleSubmit((data) => {
+                        console.log(data);
+                    })}>
                     <div>
-                        <span>Start:</span>{' '}
-                        {date[0].toDateString()}
-                        &nbsp;|&nbsp;
-                        <span>End:</span> {date[1].toDateString()}
-
-                        <NumberOfDays
-                            startDate={date[0]}
-                            endDate={date[1]}
-                            numPages={numPages}
+                        <label>
+                            Name of the book:
+                        </label>
+                        <input
+                            type="text"
+                            {...register("bookName", { required: "This is required." })}
+                            value={title}
+                            onInput={e => setTitle(e.target.value)}
                         />
-
+                        <p>{errors.bookName?.message}</p>
                     </div>
-
-                ) : (
                     <div>
-                        <span>Date:</span>{' '}
-                        {date[0].toDateString()}
+                        <label>
+                            Number of pages:
+                        </label>
+                        <input
+                            type="number"
+                            {...register("numberPages", {
+                                required: "This is required.",
+                                min: {
+                                    value: 1,
+                                    message: "Min value is 1"
+                                }
+                            })}
+                            value={numPages}
+                            onInput={e => setNumPages(e.target.value)}
+                        />
+                        <p>{errors.numberPages?.message}</p>
+
                     </div>
-                )}
-                <input
-                    type="submit"
-                    onClick={() => {
-                        setTrigged(true);
-                        pushToBE(title, numPages);
-                    }}
-                />
+                    <div>
+                        <Calendar
+                            type="text"
+                            onChange={setDate}
+                            selectRange={true}
+                            minDate={new Date()}
+                        />
+                    </div>
 
-            </form>
+                    {date.length > 1 ? (
+                        <div>
+                            <span>Start:</span>{' '}
+                            {date[0].toDateString()}
+                            &nbsp;|&nbsp;
+                            <span>End:</span> {date[1].toDateString()}
 
+                            <NumberOfDays
+                                startDate={date[0]}
+                                endDate={date[1]}
+                                numPages={numPages}
+                            />
+
+                        </div>
+
+                    ) : (
+                        <div>
+                            <span>Date:</span>{' '}
+                            {date[0].toDateString()}
+                        </div>
+                    )}
+                    <input
+                        type="submit"
+                        onClick={() => {
+                            setTrigged(true);
+                            pushToBE(title, numPages);
+                        }}
+                    />
+
+                </form>
+            </div>
             {date.length > 1 && (<PopUp
                 trigger={istrigged}
                 setTrigged={setTrigged}

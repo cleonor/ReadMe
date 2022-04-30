@@ -19,6 +19,12 @@ app.get('/user/:username/books', (req, res) => {
 
 app.post('/newbook', (req, res) => {
     console.log(req.body)
+    db.data
+        .books
+        .push(req.body)
+
+    // Save to file
+    db.write()
     res.send('New Book Created')
 })
 

@@ -13,6 +13,7 @@ app.get('/', (req, res) => {
 
 app.get('/user/:username/books', (req, res) => {
     const name = req.params.username
+    console.log(`Request from ${name}`)
     res.send(`Hello, ${name}`)
 })
 

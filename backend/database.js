@@ -18,7 +18,6 @@ await db.read()
 db.data ||= { books: [] }             // Node >= 15.x
 
 const { books } = db.data
-books.push('hello world')
 
 // Finally write db.data content to file
 await db.write()

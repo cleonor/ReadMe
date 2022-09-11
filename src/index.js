@@ -73,7 +73,7 @@ const App = () => {
                         <p>{errors.numberPages?.message}</p>
 
                     </div>
-                    <div>
+                    <div className="calendar">
                         <Calendar
                             type="text"
                             onChange={setDate}

@@ -6,31 +6,7 @@
 body {
   background-image: url("books.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.searchFormContainer {
-  display: flex;
-}
-
-.searchForm {
-  width: 600px;
-  height: 400px;
-  background-color: #eceff1;
-  border-radius: 8px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 15px;
-  margin: 50px 9px;
-}
-
-.bookInformation {
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  justify-content: space-between;
+  background-repeat: repeat-y;
 }
 
 .calendar {

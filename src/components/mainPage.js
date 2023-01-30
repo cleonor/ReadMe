@@ -74,27 +74,6 @@ const MainPage = () => {
                         />
                     </div>
 
-                    {/* {date.length > 1 ? (
-                        <div>
-                            <span>Start:</span>{' '}
-                            {date[0].toDateString()}
-                            &nbsp;|&nbsp;
-                            <span>End:</span> {date[1].toDateString()}
-
-                            <NumberOfDays
-                                startDate={date[0]}
-                                endDate={date[1]}
-                                numPages={numPages}
-                            />
-
-                        </div>
-
-                    ) : (
-                        <div>
-                            <span>Date:</span>{' '}
-                            {date[0].toDateString()}
-                        </div>
-                    )} */}
                     <StyledButton variant="contained"
                         type="submit"
                         color="inherit"
@@ -114,6 +93,7 @@ const MainPage = () => {
                     title={title}
                     pages={numPages}
                     dates={date}
+                    onBackClick={() => setOpenDialog(false)}
                 />
                 )
             }

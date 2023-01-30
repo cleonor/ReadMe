@@ -4,12 +4,12 @@ import { StyledDialog } from "./infoDialog.styles";
 
 
 
-function InfoDialog({ isOpen, title, pages, dates }) {
+function InfoDialog({ isOpen, title, pages, dates, onBackClick }) {
     return (
         <Dialog open={isOpen}>
             <button
                 className="backButton"
-                onClick={() => { }}
+                onClick={onBackClick}
             >
                 Back
             </button>
@@ -22,4 +22,4 @@ function InfoDialog({ isOpen, title, pages, dates }) {
     );
 }
 
-export default InfoDialog
+export default InfoDialog;

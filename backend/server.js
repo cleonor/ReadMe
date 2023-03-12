@@ -28,6 +28,12 @@ app.post('/newbook', (req, res) => {
     res.send('New Book Created')
 })
 
+app.post('/login', (req, res) => {
+    console.log(req.body)
+
+    res.send('Login success')
+})
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })

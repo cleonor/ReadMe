@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import TextField from '@mui/material/TextField';
 import { Button } from "@mui/material";
-
+import axios from "axios";
 
 
 function LogIn() {
+
+    const authenticate = (username, password) => {
+        axios.post('http://localhost:3001/login', {
+            username: username,
+            password: password
+        });
+    }
 
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
@@ -39,6 +46,7 @@ function LogIn() {
                 color="inherit"
                 onClick={(e) => {
                     e.preventDefault()
+                    authenticate(username, password)
                 }}
             >LogIn</Button>
         </>

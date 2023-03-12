@@ -1,4 +1,14 @@
 {
   "books": [
+    {
+      "title": "as manhas",
+      "numberofPages": "100"
+    }
+  ],
+  "users": [
+    {
+      "username": "leonor",
+      "password": "123"
+    }
   ]
 }

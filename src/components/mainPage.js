@@ -50,6 +50,7 @@ const MainPage = () => {
                             onInput={e => setTitle(e.target.value)}
                             size="small"
                             helperText={titleValidation}
+                            autoComplete='off'
                         />
                         <label>
                             Number of pages:
@@ -88,7 +89,7 @@ const MainPage = () => {
                 </SearchForm>
             </SearchFormContainer>
             {
-                date.length > 1 && (<InfoDialog
+                title && numPages && date.length > 2 && (<InfoDialog
                     isOpen={openDialog}
                     title={title}
                     pages={numPages}

@@ -4,6 +4,7 @@ import './calendar.css'
 import "./index.css";
 import Navbar from "./components/navBar";
 import MainPage from './components/mainPage';
+import LogIn from './components/logIn';
 import {
     createBrowserRouter,
     RouterProvider,
@@ -23,7 +24,7 @@ const App = () => {
         },
         {
             path: "/login",
-            element: <div>Test!</div>,
+            element: <LogIn />,
         },
     ]);
 

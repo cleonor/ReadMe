@@ -37,7 +37,7 @@ const Navbar = () => {
                     </Typography>
                     <Button
                         color="inherit"
-                        onClick={() => console.log({ user })}
+                        onClick={() => { window.location.href = '/login' }}
                     >
                         Log in
                     </Button>

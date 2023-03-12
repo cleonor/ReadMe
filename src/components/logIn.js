@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TextField from '@mui/material/TextField';
 import { Button } from "@mui/material";
 import axios from "axios";
-import { SearchForm, SearchFormContainer, BookInformation } from "./mainPage.styles";
+import { LoginFormContainer, LoginForm, UserInformation } from "./login.styles";
 
 
 
@@ -21,9 +21,9 @@ function LogIn() {
 
     return (
         <>
-            <SearchFormContainer>
-                <SearchForm>
-                    <BookInformation>
+            <LoginFormContainer>
+                <LoginForm>
+                    <UserInformation>
                         <label>
                             Username:
                         </label>
@@ -46,7 +46,7 @@ function LogIn() {
                             onInput={e => setPassword(e.target.value)}
                             size="small"
                         />
-                    </BookInformation>
+                    </UserInformation>
 
                     <Button variant="contained"
                         type="submit"
@@ -56,8 +56,8 @@ function LogIn() {
                             authenticate(username, password)
                         }}
                     >LogIn</Button>
-                </SearchForm>
-            </SearchFormContainer>
+                </LoginForm>
+            </LoginFormContainer>
         </>
     );
 }

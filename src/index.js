@@ -17,7 +17,9 @@ const App = () => {
     const router = createBrowserRouter([
         {
             path: "/",
-            element: <MainPage />
+            element: <> <Navbar />
+                <MainPage />
+            </>
             ,
         },
         {
@@ -30,7 +32,6 @@ const App = () => {
 
     return (
         <>
-            <Navbar />
             <RouterProvider router={router} />
         </>
     )

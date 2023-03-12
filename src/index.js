@@ -9,8 +9,7 @@ import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
-
-
+import { CookiesProvider } from 'react-cookie';
 
 const App = () => {
 
@@ -32,7 +31,9 @@ const App = () => {
 
     return (
         <>
-            <RouterProvider router={router} />
+            <CookiesProvider>
+                <RouterProvider router={router} />
+            </CookiesProvider>
         </>
     )
 }

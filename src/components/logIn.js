@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import { Button } from "@mui/material";
 import axios from "axios";
 import { LoginFormContainer, LoginForm, UserInformation } from "./login.styles";
-
+import { useCookies } from 'react-cookie';
 
 
 function LogIn() {
@@ -12,9 +12,9 @@ function LogIn() {
         axios.post('http://localhost:3001/login', {
             username: username,
             password: password
-        });
+        }).then(() => setCookie("username", username, { path: '/' }));
     }
-
+    const [cookies, setCookie] = useCookies(["username"]);
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
 

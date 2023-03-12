@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { blueGrey } from '@mui/material/colors';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import axios from "axios";
+import { useCookies } from 'react-cookie';
 
 const theme = createTheme({
     palette: {
@@ -17,13 +17,7 @@ const theme = createTheme({
 
 
 const Navbar = () => {
-    const [user, setUser] = useState("");
-
-    axios
-        .get("http://localhost:3001/user")
-        .then(function (response) {
-            setUser(response)
-        })
+    const [cookies] = useCookies(["username"]);
 
     return (
         <ThemeProvider theme={theme}>
@@ -35,12 +29,15 @@ const Navbar = () => {
                     >
                         ReadMe
                     </Typography>
-                    <Button
-                        color="inherit"
-                        onClick={() => { window.location.href = '/login' }}
-                    >
-                        Log in
-                    </Button>
+                    {cookies.username ? `Hello, ${cookies.username}` :
+                        (
+                            <Button
+                                color="inherit"
+                                onClick={() => { window.location.href = '/login' }}
+                            >
+                                LogIn
+                            </Button>)
+                    }
                 </Toolbar>
             </AppBar>
         </ThemeProvider>

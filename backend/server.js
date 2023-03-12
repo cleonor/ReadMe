@@ -28,6 +28,18 @@ app.post('/newbook', (req, res) => {
     res.send('New Book Created')
 })
 
+app.post('/login', (req, res) => {
+    const allUsers = db.data.users;
+
+    const user = allUsers.find((user) => req.body.username === user.username);
+    if (user) {
+        if (req.body.password === user.password) res.send('Login success')
+    }
+    res.status(401);
+    res.send('User not found');
+
+})
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })

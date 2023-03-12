@@ -19,8 +19,18 @@ function LogIn() {
     }
     const [, setCookie] = useCookies(["username"]);
     const [username, setUsername] = useState();
+    const [usernameValidation, setUsernameValidation] = useState();
     const [password, setPassword] = useState();
+    const [passwordValidation, setPasswordValidation] = useState();
 
+
+    const validateInputFields = () => {
+        setUsernameValidation();
+        setPasswordValidation();
+
+        if (!username) setUsernameValidation("Required field");
+        if (!password) setPasswordValidation("Required field");
+    }
 
     return (
         <>
@@ -37,6 +47,8 @@ function LogIn() {
                             onInput={e => setUsername(e.target.value)}
                             size="small"
                             autoComplete='off'
+                            helperText={usernameValidation}
+
                         />
                         <label>
                             Password:
@@ -48,6 +60,8 @@ function LogIn() {
                             value={password}
                             onInput={e => setPassword(e.target.value)}
                             size="small"
+                            helperText={passwordValidation}
+
                         />
                     </UserInformation>
 
@@ -56,6 +70,7 @@ function LogIn() {
                         color="inherit"
                         onClick={(e) => {
                             e.preventDefault()
+                            validateInputFields()
                             authenticate(username, password)
                         }}
                     >LogIn</Button>

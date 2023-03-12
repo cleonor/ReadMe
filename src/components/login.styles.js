@@ -28,6 +28,7 @@ export const UserInformation = styled.div`
   #standard-number-helper-text, #standard-required-helper-text{
       margin-top: 30px;
       position: absolute;
+      width: 300px;
   }
 `;
 

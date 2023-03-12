@@ -15,7 +15,7 @@ function LogIn() {
         }).then(() => {
             setCookie("username", username, { path: '/' })
             window.location.href = '/'
-        });
+        }).catch(() => setUsernameValidation("Wrong username or passsword"));
     }
     const [, setCookie] = useCookies(["username"]);
     const [username, setUsername] = useState();
@@ -71,7 +71,9 @@ function LogIn() {
                         onClick={(e) => {
                             e.preventDefault()
                             validateInputFields()
-                            authenticate(username, password)
+                            if (username && password) {
+                                authenticate(username, password)
+                            }
                         }}
                     >LogIn</Button>
                 </LoginForm>

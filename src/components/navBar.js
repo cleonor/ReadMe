@@ -17,7 +17,7 @@ const theme = createTheme({
 
 
 const Navbar = () => {
-    const [cookies] = useCookies(["username"]);
+    const [cookies, setCookie, removeCookie] = useCookies(["username"]);
 
     return (
         <ThemeProvider theme={theme}>
@@ -29,7 +29,13 @@ const Navbar = () => {
                     >
                         ReadMe
                     </Typography>
-                    {cookies.username ? `Hello, ${cookies.username}` :
+                    {cookies.username ? (<>Hello, {cookies.username} <Button
+                        color="inherit"
+                        onClick={() => { removeCookie("username") }}
+                    >
+                        LogOut
+                    </Button> </>)
+                        :
                         (
                             <Button
                                 color="inherit"

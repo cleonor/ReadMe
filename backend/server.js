@@ -29,9 +29,15 @@ app.post('/newbook', (req, res) => {
 })
 
 app.post('/login', (req, res) => {
-    console.log(req.body)
+    const allUsers = db.data.users;
 
-    res.send('Login success')
+    const user = allUsers.find((user) => req.body.username === user.username);
+    if (user) {
+        if (req.body.password === user.password) res.send('Login success')
+    }
+    res.status(401);
+    res.send('User not found');
+
 })
 
 app.listen(port, () => {

@@ -12,9 +12,12 @@ function LogIn() {
         axios.post('http://localhost:3001/login', {
             username: username,
             password: password
-        }).then(() => setCookie("username", username, { path: '/' }));
+        }).then(() => {
+            setCookie("username", username, { path: '/' })
+            window.location.href = '/'
+        });
     }
-    const [cookies, setCookie] = useCookies(["username"]);
+    const [, setCookie] = useCookies(["username"]);
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
 

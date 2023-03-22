@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { CookiesProvider } from "react-cookie";
 import * as ReactDOM from "react-dom";
 import * as React from "react";
+import { UserBooks } from "./components/userBooks";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -23,6 +24,15 @@ const App = () => {
     {
       path: "/login",
       element: <LogIn />,
+    },
+    {
+      path: "/user_books",
+      element: (
+        <>
+          <Navbar />
+          <UserBooks />
+        </>
+      ),
     },
   ]);
 

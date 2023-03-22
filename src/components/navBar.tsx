@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -6,6 +6,7 @@ import { blueGrey } from '@mui/material/colors';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { useCookies } from 'react-cookie';
+
 
 const theme = createTheme({
     palette: {
@@ -15,8 +16,11 @@ const theme = createTheme({
     },
 });
 
+interface INavbarProps {
 
-const Navbar = () => {
+}
+
+const Navbar = (props: INavbarProps) => {
     const [cookies, setCookie, removeCookie] = useCookies(["username"]);
 
     return (

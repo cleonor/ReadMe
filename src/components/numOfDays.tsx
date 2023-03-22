@@ -1,12 +1,18 @@
-import React from "react";
+import * as React from 'react';
 
-export function NumberOfDays({ startDate, endDate, numPages }) {
+interface INumberOfDaysProps {
+    startDate: any;
+    endDate: any;
+    numPages: any;
+}
+
+export const NumberOfDays = (props: INumberOfDaysProps) => {
 
     const oneDay = 1000 * 60 * 60 * 24;
-    const diffInTime = endDate.getTime() - startDate.getTime();
+    const diffInTime = props.endDate.getTime() - props.startDate.getTime();
     const diffInDays = Math.round(diffInTime / oneDay);
 
-    const exactPagesPerDay = (numPages / diffInDays);
+    const exactPagesPerDay = (props.numPages / diffInDays);
     const pagerPerDayRoundDown = Math.floor(exactPagesPerDay);
     const pagerPerDayRoundUp = Math.ceil(exactPagesPerDay);
 

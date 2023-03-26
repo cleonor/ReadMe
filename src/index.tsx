@@ -14,12 +14,7 @@ const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: (
-        <>
-          <Navbar />
-          <MainPage />
-        </>
-      ),
+      element: <MainPage />,
     },
     {
       path: "/login",
@@ -27,18 +22,14 @@ const App = () => {
     },
     {
       path: "/user_books",
-      element: (
-        <>
-          <Navbar />
-          <UserBooks />
-        </>
-      ),
+      element: <UserBooks />,
     },
   ]);
 
   return (
     <>
       <CookiesProvider>
+        <Navbar />
         <RouterProvider router={router} />
       </CookiesProvider>
     </>

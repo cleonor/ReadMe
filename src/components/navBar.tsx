@@ -38,23 +38,23 @@ const Navbar = (props: INavbarProps) => {
 
           {cookies.username ? (
             <>
-              Hello, {cookies.username}{" "}
-              <Button
+              Hello, {cookies.username}
+              <MenuItem
                 color="inherit"
                 onClick={() => {
                   removeCookie("username");
                 }}>
-                LogOut
-              </Button>{" "}
+                Logout
+              </MenuItem>{" "}
             </>
           ) : (
-            <Button
+            <MenuItem
               color="inherit"
               onClick={() => {
                 window.location.href = "/login";
               }}>
-              LogIn
-            </Button>
+              Login
+            </MenuItem>
           )}
         </Toolbar>
       </AppBar>

@@ -40,6 +40,10 @@ app.post('/login', (req, res) => {
 
 })
 
+app.get('/myBooks', (req, res) => {
+    res.send(db.data.books);
+})
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })

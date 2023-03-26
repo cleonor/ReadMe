@@ -4,7 +4,6 @@ import Toolbar from "@mui/material/Toolbar";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { blueGrey } from "@mui/material/colors";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import { useCookies } from "react-cookie";
 import MenuItem from "@mui/material/MenuItem";
 
@@ -32,7 +31,7 @@ const Navbar = (props: INavbarProps) => {
           <MenuItem
             key={"Add book"}
             onClick={() => {
-              window.location.href = "/";
+              window.location.href = "/addBook";
             }}>
             <Typography textAlign="left">Add Book</Typography>
           </MenuItem>

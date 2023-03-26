@@ -9,12 +9,12 @@ import {
   SearchForm,
   SearchFormContainer,
   StyledButton,
-} from "./mainPage.styles";
+} from "./addBook.styles";
 import { Calendar } from "react-calendar";
 
-interface IMainPage {}
+interface IAddBookPage {}
 
-export const MainPage = (props: IMainPage) => {
+export const AddBook = (props: IAddBookPage) => {
   const [title, setTitle] = useState<string>("");
   const [titleValidation, setTitleValidation] = useState<string>();
 

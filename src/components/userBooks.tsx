@@ -1,6 +1,7 @@
 import axios from "axios";
 import * as React from "react";
 import { useEffect, useState } from "react";
+import { Container, Wrapper } from "./userBooks.styles";
 
 interface IInfoDialog {}
 
@@ -25,7 +26,11 @@ export const UserBooks = (props: IInfoDialog) => {
   return (
     <>
       {userBooks?.map((book) => (
-        <div>{book.title}</div>
+        <Container>
+          <Wrapper>
+            <div>{book.title}</div>
+          </Wrapper>
+        </Container>
       ))}
     </>
   );

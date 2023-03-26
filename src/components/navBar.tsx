@@ -29,10 +29,18 @@ const Navbar = (props: INavbarProps) => {
             ReadMe
           </Typography>
 
-          <MenuItem key={"Add book"} onClick={() => console.log("Test")}>
+          <MenuItem
+            key={"Add book"}
+            onClick={() => {
+              window.location.href = "/";
+            }}>
             <Typography textAlign="left">Add Book</Typography>
           </MenuItem>
-          <MenuItem key={"My books"} onClick={() => console.log("Test")}>
+          <MenuItem
+            key={"My books"}
+            onClick={() => {
+              window.location.href = "/userBooks";
+            }}>
             <Typography textAlign="left">My Books</Typography>
           </MenuItem>
 
